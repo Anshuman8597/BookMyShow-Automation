@@ -4,6 +4,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import constants.FrameworkConstants;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +22,7 @@ public class ScreenshotUtil {
             // Also save screenshot as PNG file
             File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            File destFile = new File("screenshots/" + scenarioName + "_" + timestamp + ".png");
+            File destFile = new File(FrameworkConstants.SCREENSHOT_PATH + scenarioName + "_" + timestamp + ".png");
 
             // Create folder if not exists
             destFile.getParentFile().mkdirs();
